@@ -30,4 +30,24 @@ public class TestStream {
         List<Person> collect = list.stream().filter(person -> 20 < person.getAge()).collect(Collectors.toList());
         System.out.println(collect);
     }
+
+    @Test
+    public void testTry(){
+        int i = tryTest();
+        System.out.println(i);
+    }
+
+    private int tryTest() {
+        int i =0;
+        try {
+            i=1;
+            int i2=1/0;
+            return i;
+        }catch (Exception e){
+            i=2;
+            return i;
+        }finally {
+            i=3;
+        }
+    }
 }
