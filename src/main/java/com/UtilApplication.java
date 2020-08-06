@@ -31,6 +31,4 @@ public class UtilApplication {
     public void test2(@BeanParam TestParam test) {
         System.out.println(test.toString());
     }
-
-
 }
