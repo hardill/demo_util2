@@ -2,6 +2,7 @@ package com;
 
 import com.demo.bean.TestParam;
 import com.demo.word.WordEvaluation;
+import com.thebeastshop.forest.springboot.annotation.ForestScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @SpringBootApplication
 @RestController
+@ForestScan(basePackages ="com.demo.forest")
 public class UtilApplication {
 
   public static void main(String[] args) {

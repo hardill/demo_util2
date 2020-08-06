@@ -1,9 +1,14 @@
 package com.test.lambda;
 
+import com.aliyun.opensearch.CloudsearchSearch;
 import org.junit.Test;
 
 import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.function.Predicate;
@@ -112,5 +117,50 @@ public class TestLambda {
 
 		new Thread(() -> System.err.println("线程2启动")).start();
 	}
+
+	@Test
+	public void test21() {
+		String filePath="";
+		try(BufferedReader buff=new BufferedReader(new FileReader(filePath))){
+			String line = buff.readLine();
+			System.out.println(line);
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	@Test
+	public void test22() {
+		BigDecimal q = new BigDecimal("4");
+		BigDecimal p = new BigDecimal("1733");
+		System.out.println(q.multiply(p));
+
+	}
+
+	@Test
+	public void test23() {
+		"22213".contains("1");
+		
+		long timeLose = System.currentTimeMillis() +1000*60*5;
+		Date date = new Date(timeLose);
+		System.out.println(date);
+		double a=0.122;
+		double floor = Math.floor(a * 100)/100;
+		System.out.println(floor);
+		//Math.Floor(a*10)/10;
+
+	}
+
+	@Test
+	public void test24() {
+		CloudsearchSearch cloudsearchSearch = new CloudsearchSearch(null);
+		cloudsearchSearch.addDistinct("ref_spu_id", 1, 1, "false");
+		cloudsearchSearch.setPair("duniqfield:ref_spu_id");
+		cloudsearchSearch.setFormulaName("products");
+		cloudsearchSearch.setQueryString("");
+		cloudsearchSearch.addFetchField("facet");
+		cloudsearchSearch.setStartHit(1);
+
+	}
+
 
 }
