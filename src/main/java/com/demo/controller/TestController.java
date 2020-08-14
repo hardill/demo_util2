@@ -6,8 +6,9 @@ import com.demo.base.BaseController;
 import com.demo.base.Result;
 import com.demo.bean.ValidParam;
 import com.demo.forest.MyClient;
+import com.demo.function.TestFunction;
 import com.demo.mq.HelloSender;
-import com.demo.util.JsonUtils;
+import com.dtflys.forest.http.ForestResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @program: demo_util
@@ -29,8 +32,10 @@ public class TestController extends BaseController {
 
     @Autowired
     private HelloSender helloSender;
-    @Autowired
+    @Resource
     private MyClient myClient;
+    @Autowired
+    private TestFunction testFunction;
 
     @GetMapping("hi")
     public Result testHi(){
@@ -45,9 +50,9 @@ public class TestController extends BaseController {
 
     @GetMapping("hello2")
     public Result testForest() {
-        String s = myClient.simpleRequest();
-        Result result = JsonUtils.decode(s, Result.class);
-        return successResult(Result.MSG_SUCCESS,result.getData());
+        ForestResponse<Result> response = myClient.simpleRequest();
+        Result result = response.getResult();
+        return result;
     }
 
     @PostMapping("check")
@@ -58,6 +63,11 @@ public class TestController extends BaseController {
         }
 
         return successResult(Result.MSG_SUCCESS,"check success");
+    }
+
+    @GetMapping("test/f")
+    public Result testFunction(String key) {
+        return successResult(testFunction.getCheckResultComX(key));
     }
 
 

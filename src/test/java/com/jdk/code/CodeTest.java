@@ -21,6 +21,14 @@ import java.util.concurrent.ConcurrentHashMap;
 public class CodeTest {
 
     @Test
+    public void testString() {
+        String s ="PPP123";
+        s=s.replace("PPP","MMM");
+        System.out.println(s);
+
+    }
+
+    @Test
     public void concurrentHashMap() {
         Map<String, Object> map = new ConcurrentHashMap<>();
         log.info("map初始化,size:{}", map.size());
