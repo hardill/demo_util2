@@ -21,7 +21,7 @@ spring:
 #============== kafka ===================
 # 指定kafka server的地址，集群配多个，中间，逗号隔开
   kafka:
-    bootstrap-servers: 120.26.246.30:9092
+    bootstrap-servers: 122.51.251.251:9092
     listener:
       missing-topics-fatal: false
     template:

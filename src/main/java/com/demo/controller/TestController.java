@@ -2,6 +2,7 @@ package com.demo.controller;/**
  * Created by Administrator on 2018/12/21.
  */
 
+import com.demo.annotation.WebLog;
 import com.demo.base.BaseController;
 import com.demo.base.Result;
 import com.demo.bean.ValidParam;
@@ -38,6 +39,7 @@ public class TestController extends BaseController {
     private TestFunction testFunction;
 
     @GetMapping("hi")
+    @WebLog
     public Result testHi(){
         return successResult(Result.MSG_SUCCESS,"hello");
     }

@@ -1,5 +1,6 @@
 package com.demo.bean;
 
+import com.demo.annotation.TransType;
 import lombok.Data;
 
 import javax.validation.Valid;
@@ -22,5 +23,7 @@ public class ValidParam {
     @Size(min = 1,message = "list is null")
     @Valid
     private List<Person> persons;
+    @TransType(message = "参数不符合要求")
+    private String type;
 
 }
