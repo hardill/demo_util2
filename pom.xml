@@ -167,10 +167,16 @@
             <artifactId>httpclientutil</artifactId>
             <version>1.0.4</version>
         </dependency>
+        <!--<dependency>
+            <groupId>dance</groupId>
+            <artifactId>Distributed-Kit</artifactId>
+            <version>0.0.1</version>
+        </dependency>-->
         <dependency>
             <groupId>dance</groupId>
             <artifactId>Distributed-Kit</artifactId>
             <version>0.0.1</version>
+            <systemPath>${pom.basedir}/src/lib/Distributed-Kit-0.0.1.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.dtflys.forest</groupId>
