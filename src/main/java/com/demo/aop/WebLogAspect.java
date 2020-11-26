@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
 //@Profile({"dev", "test"})
 public class WebLogAspect {
 
-    private final static Logger logger         = LoggerFactory.getLogger(WebLogAspect.class);
+    private final static Logger logger = LoggerFactory.getLogger(WebLogAspect.class);
     /** 换行符 */
     private static final String LINE_SEPARATOR = System.lineSeparator();
 

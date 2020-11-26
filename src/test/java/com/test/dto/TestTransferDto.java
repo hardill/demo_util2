@@ -44,8 +44,16 @@ public class TestTransferDto {
     @Test
     public void test1(){
         Student lucy = buildStudent();
-        StudentDTO dto = dozerMapper.map(lucy, StudentDTO.class);
-        System.err.println(dto);
+        long s = System.currentTimeMillis();
+        int i=0;
+        while (i<100){
+            i++;
+            StudentDTO dto = dozerMapper.map(lucy, StudentDTO.class);
+            System.err.println("执行次数:"+i);
+        }
+
+        System.err.println(System.currentTimeMillis()-s);
+        //System.err.println(dto);
     }
 
 

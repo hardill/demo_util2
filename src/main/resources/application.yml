@@ -5,14 +5,16 @@ swagger:
   enable: true
 
 spring:
+  #数据源配置
   datasource:
-    url: jdbc:mysql://rm-bp167v39m44a2ygxqo.mysql.rds.aliyuncs.com/sharan_dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-    username: pppcar_dev
-    password: 3pcardevdbmms12#
+    url: jdbc:mysql://122.51.251.251:3306/tx?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: admin
+    password: 1212huang1205
     driver-class-name: com.mysql.jdbc.Driver
-    xa:
-      properties:
-        useInformationSchema: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   rabbitmq:
     host: 47.94.45.117
     port: 5672

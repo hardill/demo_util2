@@ -1,12 +1,5 @@
 package com.test.lock;
 
-import com.distributed.lock.Callback;
-import com.distributed.lock.zk.ZkDistributedLockTemplate;
-import org.apache.curator.RetryPolicy;
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.retry.ExponentialBackoffRetry;
-
 /**
  * @program: demo_util
  * @description:
@@ -15,12 +8,12 @@ import org.apache.curator.retry.ExponentialBackoffRetry;
  **/
 public class ZookeeperLock {
     public static void main(String[] args){
-        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
+        /*RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
         CuratorFramework client = CuratorFrameworkFactory.newClient("120.26.246.30:2181", retryPolicy);
-        client.start();
+        client.start();*/
 
-        final ZkDistributedLockTemplate template=new ZkDistributedLockTemplate(client);//本类多线程安全,可通过spring注入
-        template.execute("订单流水号", 5000, new Callback() {//获取锁超时时间为5秒
+        //final ZkDistributedLockTemplate template=new ZkDistributedLockTemplate(null);//本类多线程安全,可通过spring注入
+        /*template.execute("订单流水号", 5000, new Callback() {//获取锁超时时间为5秒
             @Override
             public Object onGetLock() throws InterruptedException {
                 //TODO 获得锁后要做的事
@@ -34,6 +27,6 @@ public class ZookeeperLock {
                 System.out.println("获取锁超时-----------");
                 return null;
             }
-        });
+        });*/
     }
 }

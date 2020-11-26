@@ -5,6 +5,9 @@ import com.demo.word.WordEvaluation;
 import com.thebeastshop.forest.springboot.annotation.ForestScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +17,9 @@ import java.util.List;
 @SpringBootApplication
 @RestController
 @ForestScan(basePackages ="com.demo.forest")
+@ComponentScan("com.demo")
+@EnableJpaRepositories(basePackages = "com.demo.dao")
+@EntityScan(basePackages = "com.demo.bean")
 public class UtilApplication {
 
   public static void main(String[] args) {
