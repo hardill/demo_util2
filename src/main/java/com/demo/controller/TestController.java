@@ -94,10 +94,10 @@ public class TestController extends BaseController {
 
     @GetMapping("tx2")
     public void testTx2(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        test6(request, response);
+        test6();
     }
 
-    public void test6(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void test6() throws Exception {
         int page = 0;
         List<Tx> list = new ArrayList<>();
         while (page < 20) {
@@ -127,5 +127,6 @@ public class TestController extends BaseController {
         }
 
     }
+
 
 }
