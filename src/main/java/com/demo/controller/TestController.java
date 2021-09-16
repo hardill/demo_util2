@@ -20,10 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: demo_util
@@ -52,6 +50,13 @@ public class TestController extends BaseController {
     private TxDao txDao;
 
     public TestController() throws IOException {
+    }
+
+    @PostMapping("hi2")
+    @ResponseBody
+    public Result testHi2(@RequestParam() String type, @RequestBody Map<String,String> map) {
+        System.out.println(type+"------"+map.toString());
+        return successResult(Result.MSG_SUCCESS, "hello");
     }
 
     @GetMapping("hi")

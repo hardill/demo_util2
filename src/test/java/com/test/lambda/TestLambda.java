@@ -7,10 +7,7 @@ import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.IntSummaryStatistics;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -139,7 +136,7 @@ public class TestLambda {
 	@Test
 	public void test23() {
 		"22213".contains("1");
-		
+
 		long timeLose = System.currentTimeMillis() +1000*60*5;
 		Date date = new Date(timeLose);
 		System.out.println(date);
@@ -162,5 +159,32 @@ public class TestLambda {
 
 	}
 
+	@Test
+	public void test25() {
+		String ip="66.249.68.41";
+		String[] split = ip.split("\\.");
+		int i = ip.lastIndexOf("\\.");
+		System.out.println(i);
+		boolean matches = ip.matches("66.249.*.*");
+		System.out.println(matches);
+
+
+	}
+
+	@Test
+	public void test26() {
+		List<Date> list = new ArrayList<>();
+		Date date1 = new Date(177777777777777l);
+		Date date2 = new Date(177777777777778l);
+		Date date3 = new Date(177777777779978l);
+		list.add(date1);
+		list.add(date2);
+		list.add(date3);
+		Optional<Date> max = list.stream().max(Comparator.comparing(d -> d));
+
+		System.out.println(max.get().getTime());
+
+
+	}
 
 }
